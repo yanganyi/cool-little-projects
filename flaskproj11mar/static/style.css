@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #337ab7;
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #5bc0de;
+    color: white;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #46b8da;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed; 
+}
+
+thead {
+    background-color: #f0f0f0;
+}
+
+th {
+    background-color: #eee;
+    font-weight: bold;
+    color: #555;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative; 
+}
+
+td {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+th:nth-child(1), td:nth-child(1) { width: 5%; }
+th:nth-child(2), td:nth-child(2) { width: 10%; }
+th:nth-child(3), td:nth-child(3) { width: 8%; }
+th:nth-child(4), td:nth-child(4) { width: 15%; }
+th:nth-child(5), td:nth-child(5) { width: 12%; }
+th:nth-child(6), td:nth-child(6) { width: 10%; }
+th:nth-child(7), td:nth-child(7) { width: 8%; }
+th:nth-child(8), td:nth-child(8) { width: 7%; }
+th:nth-child(9), td:nth-child(9) { width: 5%; }
+th:nth-child(10), td:nth-child(10) { width: 5%; }
+th:nth-child(11), td:nth-child(11) { width: 5%; }
+th:nth-child(12), td:nth-child(12) { width: 10%; }
+
+.grip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 5px; 
+    background-color: transparent; 
+    cursor: col-resize;
+}
+
+.grip:hover {
+    background-color: rgba(0, 0, 0, 0.2); 
+}
+
+body.resizing {
+    cursor: col-resize !important; 
+    user-select: none;         
+}
+
+.filter-form {  }
+.filter-form label, .filter-form select, .filter-form input, .filter-form button {  }
+.filter-form label {  }
+.filter-form select, .filter-form input {  }
+.filter-form button {  }
+.filter-form button:hover {  }
+
+a {  }
+a:hover {  }

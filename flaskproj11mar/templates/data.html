@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>  
+</head>
+<body>
+    <h1>CSV Data</h1>
+    <nav> <a href="/">Back to Home</a> </nav>
+
+    <div class="filter-form">
+        <form method="GET" action="/data">
+            <label for="filter_column">Filter by Column:</label>
+            <select name="filter_column" id="filter_column">
+                <option value="">-- Select Column --</option>
+                {% for header in headers %}
+                    <option value="{{ header }}" {% if header == selected_column %}selected{% endif %}>{{ header }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="filter_value">Filter Value:</label>
+            <input type="text" id="filter_value" name="filter_value" value="{{ filter_value }}">
+
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                {% for header in headers %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in csv_data %}
+                <tr>
+                    {% for header in headers %}
+                        <td>{{ row[header] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
