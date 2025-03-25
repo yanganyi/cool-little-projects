@@ -23,34 +23,40 @@ def load_csv_data(csv_file_path):
 def index():
     return render_template('index.html')
 
-@app.route("/data")
+@app.route("/data", methods=['GET','POST'])
 def data_page():
     csv_file = "data.csv"
     csv_data = load_csv_data(csv_file)
+    headers = csv_data[0].keys() if csv_data else []
 
-    if csv_data:
-        headers = csv_data[0].keys() if csv_data else []
+    if request.method == "GET":
+        return render_template(
+            'data.html',
+            csv_data=csv_data,
+            headers=headers,
+            selected_column="",
+            filter_value=""    
+        )
 
-        filter_column = request.args.get('filter_column') 
-        filter_value = request.args.get('filter_value')
+    if request.method == "POST":
+        filter_column = request.form.get('filter_column')
+        filter_value = request.form.get('filter_value')
 
-        filtered_data = csv_data  
+        filtered_data = csv_data
 
         if filter_column and filter_value:
             filtered_data = [
                 row for row in csv_data
-                if filter_column in row and filter_value.lower() in str(row[filter_column]).lower() 
+                if filter_column in row and filter_value.lower() in str(row[filter_column]).lower()
             ]
 
         return render_template(
             'data.html',
             csv_data=filtered_data,
             headers=headers,
-            selected_column=filter_column,  
-            filter_value=filter_value       
+            selected_column=filter_column,
+            filter_value=filter_value
         )
-    else:
-        return "Error loading CSV data. Please check the file."
 
 if __name__ == "__main__":
     app.run()
